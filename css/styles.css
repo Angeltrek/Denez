@@ -22,6 +22,16 @@ body{
     min-height: 100vh;
 }
 
+body::-webkit-scrollbar{
+    width: 0.5rem;
+    background: var(--color-1);
+}
+
+body::-webkit-scrollbar-thumb{
+    background: var(--color-2);
+    border-radius: 2px;
+}
+
 h1{
     font-size: 6rem;
 }
@@ -41,7 +51,7 @@ p {
 
 h1, h2, h3 {
     font-family: 'Roboto', sans-serif;
-    color: var(--color-2);
+    color: var(--color-3);
 }
 
 hr {
@@ -334,6 +344,8 @@ header.sticky{
     padding: 10rem 0 0;
     max-width: 50ch;
     min-width: 25ch;
+    max-height: 390px;
+    min-height: 380px;
     border-radius: 0.5rem;
     overflow: hidden;
     position: relative;
@@ -393,6 +405,11 @@ header.sticky{
 
 .card-body{
     color: rgba(255, 255, 255, 0.85);
+    height: 400px;
+}
+
+.contact .card-content{
+    background: transparent;
 }
 
 .card .neon-button{
@@ -448,7 +465,11 @@ footer a{
 }
 
 .footer-desc{
-    text-align: right;
+    text-align: justify;
+}
+
+.footer-desc p{
+    font-size: 1rem;
 }
 
 footer .container{
@@ -488,9 +509,134 @@ footer .container{
     color: var(--color-3);
 }
 
+.about p{
+    overflow-y: scroll;
+    height: 200px;
+}
+
+.about p::-webkit-scrollbar{
+    background: transparent;
+}
+
+.about p::-webkit-scrollbar-thumb{
+    background: var(--color-2);
+    height: 30px;
+    border-radius: 0.3rem;
+}
+
+/* inverstment */
+.data{
+    display: flex;
+    margin: 2rem;
+    justify-content: space-around;
+}
+
+.graph{
+    height: 400px;
+    transition: transform 1s ease;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    position: relative;
+}
+
+.graph:hover{
+    transform: scale(1.05);
+    transition: 1s ease;
+}
+
+.symb-1{
+    background-color: var(--color-1);
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+}
+
+.symb-2{
+    background-color: var(--color-2);
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+}
+
+.symb-3{
+    background-color: #ccdb68;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+}
+
+.bar-1{
+    height: 55.9%;
+    background-color: var(--color-1);
+    width: 60px;
+}
+
+.bar-2{
+    width: 60px;
+    background-color: var(--color-2);
+    height: 27.5%;
+}
+
+.bar-3{
+    width: 60px;
+    background-color: #ccdb68;
+    height: 16.7%;
+}
+
+.mark{
+    color: var(--color-2);
+}
+
+.earnings{
+    position: relative;
+    width: 100%;
+    height: 65vh;
+    display: flex;
+    justify-content: center;
+}
+
+.earnings h3{
+    font-size: 7rem;
+    color: var(--color-3);
+}
+
+.gallery{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 3rem 0;
+}
+
+.pic{
+    width: 400px;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pic img{
+    position: absolute;
+    z-index: -1300;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    filter: brightness(80%);
+}
+
+.pic h3, .pic span{
+    color: var(--color-3);
+    text-align: center;
+}
+
 @media (hover){
     .card-content{
-        transform: translateY(70%);
+        transform: translateY(25%);
 
         transition: transform 500ms ease;
     }
@@ -506,7 +652,7 @@ footer .container{
     
     .card:hover .card-content,
     .card:focus-within .card-content{
-        transform: translateY(5px);
+        transform: translateY(-150px);
         transition-delay: 500ms;
     }
     
@@ -557,6 +703,10 @@ footer .container{
     }
 
     .banner h3{
+        font-size: 7rem;
+    }
+
+    .earnings h3{
         font-size: 7rem;
     }
 }
@@ -645,6 +795,10 @@ footer .container{
         font-size: 5rem;
     }
 
+    .earnings h3{
+        font-size: 5rem;
+    }
+
 }
 
 @media (max-width: 560px){
@@ -681,8 +835,16 @@ footer .container{
         font-size: 1.5rem;
     }
 
+    .earnings h3{
+        font-size: 1.5rem;
+    }
+
     .logo img{
         width: 60px;
+    }
+
+    .about{
+        width: 100%;
     }
 
 }
